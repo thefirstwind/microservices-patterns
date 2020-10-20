@@ -77,17 +77,17 @@ The services that participate in these sagas define the following command handle
 All the services' business logic is implemented using Domain-Driven design aggregates.
 
 * `Accounting Service`
-** [`Account`](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-accounting-service/src/main/java/net/chrisrichardson/ftgo/accountingservice/domain/Account.java) aggregate in the link:./ftgo-accounting-service[ftgo-accounting-service]
+  * [`Account`](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-accounting-service/src/main/java/net/chrisrichardson/ftgo/accountingservice/domain/Account.java) aggregate in the [ftgo-accounting-service](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-accounting-service)
 * `Consumer Service`
-** [Consumer](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-consumer-service/src/main/java/net/chrisrichardson/ftgo/consumerservice/domain/Consumer.java)
+  * [Consumer](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-consumer-service/src/main/java/net/chrisrichardson/ftgo/consumerservice/domain/Consumer.java)
 * `Order Service`
-** [Order](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/domain/Order.java)
-** [Restaurant](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/domain/Restaurant.java)
+  * [Order](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/domain/Order.java)
+  * [Restaurant](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/domain/Restaurant.java)
 * `Kitchen Service`
-** [Restaurant](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-kitchen-service/src/main/java/net/chrisrichardson/ftgo/kitchenservice/domain/Restaurant.java)
-** [Ticket](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-kitchen-service/src/main/java/net/chrisrichardson/ftgo/kitchenservice/domain/Ticket.java)
+  * [Restaurant](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-kitchen-service/src/main/java/net/chrisrichardson/ftgo/kitchenservice/domain/Restaurant.java)
+  * [Ticket](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-kitchen-service/src/main/java/net/chrisrichardson/ftgo/kitchenservice/domain/Ticket.java)
 * `Restaurant Service`
-** [Restaurant](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-restaurant-service/src/main/java/net/chrisrichardson/ftgo/restaurantservice/domain/Restaurant.java)
+  * [Restaurant](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-restaurant-service/src/main/java/net/chrisrichardson/ftgo/restaurantservice/domain/Restaurant.java)
 
 
 ### Chapter 6 Developing business logic with event sourcing
