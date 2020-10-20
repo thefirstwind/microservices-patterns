@@ -2,7 +2,7 @@
 
 # FTGO example application
 
-This is the example code for the book [Microservice_patterns.pdf](https://github.com/thefirstwind/microservices-patterns/blob/main/_attachments/Microservices_Patterns.pdf).
+This is the example code for the book [Microservice_patterns.pdf](/_attachments/Microservices_Patterns.pdf).
 
 ![](_images/687474703a2f2f6d6963726f73657276696365732e696f2f692f4d6963726f73657276696365732d5061747465726e732d436f7665722e706e67.png)
 
@@ -20,13 +20,13 @@ This is the example code for the book [Microservice_patterns.pdf](https://github
 Not surprisingly, this application has a microservice architecture.
 There are the following services:
 
-* [ftgo-consumer-service](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-consumer-service) - the `Consumer Service`
-* [ftgo-restaurant-service](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-restaurant-service) - the `Restaurant Service`
-* [ftgo-order-service](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-order-service) - the `Order Service`
-* [ftgo-kitchen-service](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-kitchen-service) - the `Kitchen Service`
-* [ftgo-accounting-service](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-accounting-service) - the `Accounting Service`
-* [ftgo-order-history-service](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-order-history-service) - a `Order History Service`, which is a CQRS view
-* [ftgo-api-gateway](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-api-gateway) - the API gateway
+* [ftgo-consumer-service](/ftgo-consumer-service) - the `Consumer Service`
+* [ftgo-restaurant-service](/ftgo-restaurant-service) - the `Restaurant Service`
+* [ftgo-order-service](/ftgo-order-service) - the `Order Service`
+* [ftgo-kitchen-service](/ftgo-kitchen-service) - the `Kitchen Service`
+* [ftgo-accounting-service](/ftgo-accounting-service) - the `Accounting Service`
+* [ftgo-order-history-service](/ftgo-order-history-service) - a `Order History Service`, which is a CQRS view
+* [ftgo-api-gateway](/ftgo-api-gateway) - the API gateway
 
 ## Service design
 
@@ -57,18 +57,18 @@ This section maps the chapters to the code.
 
 ### Chapter 4 Managing transactions with sagas
 
-The [ftgo-order-service](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-order-service) uses sagas to maintain data consistency:
+The [ftgo-order-service](/ftgo-order-service) uses sagas to maintain data consistency:
 
-* [CreateOrderSaga](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/sagas/createorder/CreateOrderSaga.java)
-* [CancelOrderSaga](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/sagas/cancelorder/CancelOrderSaga.java)
-* [ReviseOrderSaga](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/sagas/reviseorder/ReviseOrderSaga.java)
+* [CreateOrderSaga](/ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/sagas/createorder/CreateOrderSaga.java)
+* [CancelOrderSaga](/ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/sagas/cancelorder/CancelOrderSaga.java)
+* [ReviseOrderSaga](/ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/sagas/reviseorder/ReviseOrderSaga.java)
 
 The services that participate in these sagas define the following command handlers:
 
-* `Accounting Service` [AccountingServiceCommandHandler](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-accounting-service/src/main/java/net/chrisrichardson/ftgo/accountingservice/messaging/AccountingServiceCommandHandler.java)
-* `Consumer Service` [ConsumerServiceCommandHandlers](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-consumer-service/src/main/java/net/chrisrichardson/ftgo/consumerservice/domain/ConsumerServiceCommandHandlers.java)
-* `Kitchen Service` [KitchenServiceCommandHandler](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-kitchen-service/src/main/java/net/chrisrichardson/ftgo/kitchenservice/messagehandlers/KitchenServiceCommandHandler.java)
-* `Order Service` [OrderCommandHandlers](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/service/OrderCommandHandlers.java)
+* `Accounting Service` [AccountingServiceCommandHandler](/ftgo-accounting-service/src/main/java/net/chrisrichardson/ftgo/accountingservice/messaging/AccountingServiceCommandHandler.java)
+* `Consumer Service` [ConsumerServiceCommandHandlers](/ftgo-consumer-service/src/main/java/net/chrisrichardson/ftgo/consumerservice/domain/ConsumerServiceCommandHandlers.java)
+* `Kitchen Service` [KitchenServiceCommandHandler](/ftgo-kitchen-service/src/main/java/net/chrisrichardson/ftgo/kitchenservice/messagehandlers/KitchenServiceCommandHandler.java)
+* `Order Service` [OrderCommandHandlers](/ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/service/OrderCommandHandlers.java)
 
 
 
@@ -77,31 +77,31 @@ The services that participate in these sagas define the following command handle
 All the services' business logic is implemented using Domain-Driven design aggregates.
 
 * `Accounting Service`
-  * [`Account`](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-accounting-service/src/main/java/net/chrisrichardson/ftgo/accountingservice/domain/Account.java) aggregate in the [ftgo-accounting-service](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-accounting-service)
+  * [`Account`](/ftgo-accounting-service/src/main/java/net/chrisrichardson/ftgo/accountingservice/domain/Account.java) aggregate in the [ftgo-accounting-service](/ftgo-accounting-service)
 * `Consumer Service`
-  * [Consumer](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-consumer-service/src/main/java/net/chrisrichardson/ftgo/consumerservice/domain/Consumer.java)
+  * [Consumer](/ftgo-consumer-service/src/main/java/net/chrisrichardson/ftgo/consumerservice/domain/Consumer.java)
 * `Order Service`
-  * [Order](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/domain/Order.java)
-  * [Restaurant](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/domain/Restaurant.java)
+  * [Order](/ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/domain/Order.java)
+  * [Restaurant](/ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/domain/Restaurant.java)
 * `Kitchen Service`
-  * [Restaurant](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-kitchen-service/src/main/java/net/chrisrichardson/ftgo/kitchenservice/domain/Restaurant.java)
-  * [Ticket](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-kitchen-service/src/main/java/net/chrisrichardson/ftgo/kitchenservice/domain/Ticket.java)
+  * [Restaurant](/ftgo-kitchen-service/src/main/java/net/chrisrichardson/ftgo/kitchenservice/domain/Restaurant.java)
+  * [Ticket](/ftgo-kitchen-service/src/main/java/net/chrisrichardson/ftgo/kitchenservice/domain/Ticket.java)
 * `Restaurant Service`
-  * [Restaurant](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-restaurant-service/src/main/java/net/chrisrichardson/ftgo/restaurantservice/domain/Restaurant.java)
+  * [Restaurant](/ftgo-restaurant-service/src/main/java/net/chrisrichardson/ftgo/restaurantservice/domain/Restaurant.java)
 
 
 ### Chapter 6 Developing business logic with event sourcing
 
-* [`Account`](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-accounting-service/src/main/java/net/chrisrichardson/ftgo/accountingservice/domain/Account.java) aggregate in the link:./ftgo-accounting-service[ftgo-accounting-service] is implemented using event sourcing
+* [`Account`](/ftgo-accounting-service/src/main/java/net/chrisrichardson/ftgo/accountingservice/domain/Account.java) aggregate in the link:./ftgo-accounting-service[ftgo-accounting-service] is implemented using event sourcing
 
 ### Chapter 7 Implementing queries in a microservice architecture
 
-* [ftgo-order-history-service](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-order-history-service) is an example of a CQRS view
-* [ftgo-api-gateway](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-api-gateway) uses API composition to implement the REST endpoint for retrieving the order history
+* [ftgo-order-history-service](/ftgo-order-history-service) is an example of a CQRS view
+* [ftgo-api-gateway](/ftgo-api-gateway) uses API composition to implement the REST endpoint for retrieving the order history
 
 ### Chapter 8 External API patterns
 
-* [ftgo-api-gateway](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-api-gateway) is the API gateway
+* [ftgo-api-gateway](/ftgo-api-gateway) is the API gateway
 
 
 ## Building and running the application
