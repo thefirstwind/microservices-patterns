@@ -26,7 +26,7 @@ There are the following services:
 * [ftgo-kitchen-service](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-kitchen-service) - the `Kitchen Service`
 * [ftgo-accounting-service](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-accounting-service) - the `Accounting Service`
 * [ftgo-order-history-service](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-order-history-service) - a `Order History Service`, which is a CQRS view
-* [ftgo-api-gateway](https://github.com/thefirstwind/microservices-patterns/blob/main//ftgo-api-gateway) - the API gateway
+* [ftgo-api-gateway](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-api-gateway) - the API gateway
 
 ## Service design
 
@@ -57,18 +57,18 @@ This section maps the chapters to the code.
 
 ### Chapter 4 Managing transactions with sagas
 
-The link:./ftgo-order-service[ftgo-order-service] uses sagas to maintain data consistency:
+The [ftgo-order-service](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-order-service) uses sagas to maintain data consistency:
 
-* link:./ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/sagas/createorder/CreateOrderSaga.java[CreateOrderSaga]
-* link:./ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/sagas/cancelorder/CancelOrderSaga.java[CancelOrderSaga]
-* link:./ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/sagas/reviseorder/ReviseOrderSaga.java[ReviseOrderSaga]
+* [CreateOrderSaga](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/sagas/createorder/CreateOrderSaga.java)
+* [CancelOrderSaga](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/sagas/cancelorder/CancelOrderSaga.java)
+* [ReviseOrderSaga](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/sagas/reviseorder/ReviseOrderSaga.java)
 
 The services that participate in these sagas define the following command handlers:
 
-* `Accounting Service` link:./ftgo-accounting-service/src/main/java/net/chrisrichardson/ftgo/accountingservice/messaging/AccountingServiceCommandHandler.java[AccountingServiceCommandHandler]
-* `Consumer Service` link:./ftgo-consumer-service/src/main/java/net/chrisrichardson/ftgo/consumerservice/domain/ConsumerServiceCommandHandlers.java[ConsumerServiceCommandHandlers]
-* `Kitchen Service` link:./ftgo-kitchen-service/src/main/java/net/chrisrichardson/ftgo/kitchenservice/messagehandlers/KitchenServiceCommandHandler.java[KitchenServiceCommandHandler]
-* `Order Service` link:./ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/service/OrderCommandHandlers.java[OrderCommandHandlers]
+* `Accounting Service` [AccountingServiceCommandHandler](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-accounting-service/src/main/java/net/chrisrichardson/ftgo/accountingservice/messaging/AccountingServiceCommandHandler.java)
+* `Consumer Service` [ConsumerServiceCommandHandlers](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-consumer-service/src/main/java/net/chrisrichardson/ftgo/consumerservice/domain/ConsumerServiceCommandHandlers.java)
+* `Kitchen Service` [KitchenServiceCommandHandler](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-kitchen-service/src/main/java/net/chrisrichardson/ftgo/kitchenservice/messagehandlers/KitchenServiceCommandHandler.java)
+* `Order Service` [OrderCommandHandlers](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/service/OrderCommandHandlers.java)
 
 
 
@@ -77,31 +77,31 @@ The services that participate in these sagas define the following command handle
 All the services' business logic is implemented using Domain-Driven design aggregates.
 
 * `Accounting Service`
-** link:./ftgo-accounting-service/src/main/java/net/chrisrichardson/ftgo/accountingservice/domain/Account.java[`Account`] aggregate in the link:./ftgo-accounting-service[ftgo-accounting-service]
+** [`Account`](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-accounting-service/src/main/java/net/chrisrichardson/ftgo/accountingservice/domain/Account.java) aggregate in the link:./ftgo-accounting-service[ftgo-accounting-service]
 * `Consumer Service`
-**  link:./ftgo-consumer-service/src/main/java/net/chrisrichardson/ftgo/consumerservice/domain/Consumer.java[Consumer]
+** [Consumer](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-consumer-service/src/main/java/net/chrisrichardson/ftgo/consumerservice/domain/Consumer.java)
 * `Order Service`
-** link:./ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/domain/Order.java[Order]
-** link:./ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/domain/Restaurant.java[Restaurant]
+** [Order](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/domain/Order.java)
+** [Restaurant](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-order-service/src/main/java/net/chrisrichardson/ftgo/orderservice/domain/Restaurant.java)
 * `Kitchen Service`
-**  link:./ftgo-kitchen-service/src/main/java/net/chrisrichardson/ftgo/kitchenservice/domain/Restaurant.java[Restaurant]
-** link:./ftgo-kitchen-service/src/main/java/net/chrisrichardson/ftgo/kitchenservice/domain/Ticket.java[Ticket]
+** [Restaurant](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-kitchen-service/src/main/java/net/chrisrichardson/ftgo/kitchenservice/domain/Restaurant.java)
+** [Ticket](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-kitchen-service/src/main/java/net/chrisrichardson/ftgo/kitchenservice/domain/Ticket.java)
 * `Restaurant Service`
-** link:./ftgo-restaurant-service/src/main/java/net/chrisrichardson/ftgo/restaurantservice/domain/Restaurant.java[Restaurant]
+** [Restaurant](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-restaurant-service/src/main/java/net/chrisrichardson/ftgo/restaurantservice/domain/Restaurant.java)
 
 
 ### Chapter 6 Developing business logic with event sourcing
 
-* The link:./ftgo-accounting-service/src/main/java/net/chrisrichardson/ftgo/accountingservice/domain/Account.java[`Account`] aggregate in the link:./ftgo-accounting-service[ftgo-accounting-service] is implemented using event sourcing
+* [`Account`](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-accounting-service/src/main/java/net/chrisrichardson/ftgo/accountingservice/domain/Account.java) aggregate in the link:./ftgo-accounting-service[ftgo-accounting-service] is implemented using event sourcing
 
 ### Chapter 7 Implementing queries in a microservice architecture
 
-* link:./ftgo-order-history-service[ftgo-order-history-service] is an example of a CQRS view
-* link:./ftgo-api-gateway[ftgo-api-gateway] uses API composition to implement the REST endpoint for retrieving the order history
+* [ftgo-order-history-service](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-order-history-service) is an example of a CQRS view
+* [ftgo-api-gateway](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-api-gateway) uses API composition to implement the REST endpoint for retrieving the order history
 
 ### Chapter 8 External API patterns
 
-* link:./ftgo-api-gateway[ftgo-api-gateway] is the API gateway
+* [ftgo-api-gateway](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-api-gateway) is the API gateway
 
 
 ## Building and running the application
@@ -209,10 +209,10 @@ Please do NOT set it to the unresolvable hostname of your machine, `localhost` o
 
 You can verify that `DOCKER_HOST_IP` is set correctly by running this command:
 
-----
+```
 docker run -p 8889:8888 -e DOCKER_DIAGNOSTICS_PORT=8889 -e DOCKER_HOST_IP \
      --rm eventuateio/eventuateio-docker-networking-diagnostics:0.2.0.RELEASE
-----
+```
 
 ### Setting the environment variable in your IDE
 
