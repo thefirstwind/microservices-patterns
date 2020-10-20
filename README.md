@@ -2,7 +2,7 @@
 
 # FTGO example application
 
-This is the example code for my book [Microservice patterns](https://github.com/thefirstwind/microservices-patterns_attachments/Microservices_Patterns.pdf).
+This is the example code for the book [Microservice patterns](https://github.com/thefirstwind/microservices-patterns/blob/main/_attachments/Microservices_Patterns.pdf).
 
 ![](_images/687474703a2f2f6d6963726f73657276696365732e696f2f692f4d6963726f73657276696365732d5061747465726e732d436f7665722e706e67.png)
 
@@ -14,22 +14,19 @@ This is the example code for my book [Microservice patterns](https://github.com/
 * The application consists of many services and so requires a lot of memory. It runs well, for example, on a 16GB Macbook pro.
 * The application's services and the infrastructure services, such as MySQL and Apache Kafka, are deployed using Docker containers using either Docker Compose or Kubernetes.
 
-## Got questions?
-
-Please create a https://github.com/microservices-patterns/ftgo-application/issues[github issue] and I'll do my best to help you.
 
 ## Application architecture
 
 Not surprisingly, this application has a microservice architecture.
 There are the following services:
 
-* link:./ftgo-consumer-service[ftgo-consumer-service] - the `Consumer Service`
-* link:./ftgo-restaurant-service[ftgo-restaurant-service] - the `Restaurant Service`
-* link:./ftgo-order-service[ftgo-order-service] - the `Order Service`
-* link:./ftgo-kitchen-service[ftgo-kitchen-service] - the `Kitchen Service`
-* link:./ftgo-accounting-service[ftgo-accounting-service] - the `Accounting Service`
-* link:./ftgo-order-history-service[ftgo-order-history-service] - a `Order History Service`, which is a CQRS view
-* link:./ftgo-api-gateway[ftgo-api-gateway] - the API gateway
+* [ftgo-consumer-service](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-consumer-service) - the `Consumer Service`
+* [ftgo-restaurant-service](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-restaurant-service) - the `Restaurant Service`
+* [ftgo-order-service](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-order-service) - the `Order Service`
+* [ftgo-kitchen-service](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-kitchen-service) - the `Kitchen Service`
+* [ftgo-accounting-service](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-accounting-service) - the `Accounting Service`
+* [ftgo-order-history-service](https://github.com/thefirstwind/microservices-patterns/blob/main/ftgo-order-history-service) - a `Order History Service`, which is a CQRS view
+* [ftgo-api-gateway](https://github.com/thefirstwind/microservices-patterns/blob/main//ftgo-api-gateway) - the API gateway
 
 ## Service design
 
@@ -40,14 +37,14 @@ For example, `ftgo-order-service` implements the `Order Service`
 * A service is a Spring Boot application
 * A service has a Swagger UI `http://.../swagger-ui.html`. See `open-swagger-uis.sh`
 * A service typically consists of the following packages:
-** domain - domain logic including aggregates
-** messaging - messaging adapters
-** web - Spring MVC controllers (HTTP adapters)
-** main - the main application
+  * domain - domain logic including aggregates
+  * messaging - messaging adapters
+  * web - Spring MVC controllers (HTTP adapters)
+  * main - the main application
 * The services use the following other frameworks
-** https://github.com/eventuate-tram/eventuate-tram-core[`Eventuate Tram framework`] - implements transactional messaging
-** https://github.com/eventuate-tram/eventuate-tram-sagas[`Eventuate Tram Saga framework`] - implements sagas
-** https://github.com/eventuate-clients/eventuate-client-java[`Eventuate Client framework`] - implements event sourcing
+  * [`Eventuate Tram framework`](https://github.com/eventuate-tram/eventuate-tram-core) - implements transactional messaging
+  * [`Eventuate Tram Saga framework`](https://github.com/eventuate-tram/eventuate-tram-sagas) - implements sagas
+  * [`Eventuate Client framework`](https://github.com/eventuate-clients/eventuate-client-java) - implements event sourcing
 
 ## Chapter by chapter
 
