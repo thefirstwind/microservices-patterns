@@ -2,7 +2,7 @@
 
 # FTGO example application
 
-This is the example code for the book [Microservice patterns](https://github.com/thefirstwind/microservices-patterns/blob/main/_attachments/Microservices_Patterns.pdf).
+This is the example code for the book [Microservice_patterns.pdf](https://github.com/thefirstwind/microservices-patterns/blob/main/_attachments/Microservices_Patterns.pdf).
 
 ![](_images/687474703a2f2f6d6963726f73657276696365732e696f2f692f4d6963726f73657276696365732d5061747465726e732d436f7665722e706e67.png)
 
@@ -219,3 +219,19 @@ docker run -p 8889:8888 -e DOCKER_DIAGNOSTICS_PORT=8889 -e DOCKER_HOST_IP \
 If you want to run Java services/tests within your IDE on your desktop/laptop AND  the Docker containers are not accessible via `localhost` THEN you will need to set `DOCKER_HOST_IP` within your IDE.
 How to do this depends on your operating system and IDE.
 For example, I find it convenient to launch my IDE from the command line and after setting this environment variable.
+
+
+## contents
+* [README01_Escaping_monolithic_hell.md](README01_Escaping_monolithic_hell.md)
+* [README02_Decomposition_strategies.md](README02_Decomposition_strategies.md)
+* [README03_Interprocess_communication_in_a_microservice_architecture.md](README03_Interprocess_communication_in_a_microservice_architecture.md)
+* [README04_Managing_trasactions_with_sagas.md](README04_Managing_trasactions_with_sagas.md)
+* [README05_Designing_business_logic_in_a_microservice_architecture.md](README05_Designing_business_logic_in_a_microservice_architecture.md)
+* [README06_Developing_businiess_logic_with_event_sourcing.md](README06_Developing_businiess_logic_with_event_sourcing.md)
+* [README07_implementing_queries_in_a_microservice_architecture.md](README07_implementing_queries_in_a_microservice_architecture.md)
+* [README08_External_API_patterns.md](README08_External_API_patterns.md)
+* [README09_Testing_microservices_1.md](README09_Testing_microservices_1.md)
+* [README10_Testing_microservices_2.md](README10_Testing_microservices_2.md)
+* [README11_Developing_production_ready_services.md](README11_Developing_production_ready_services.md)
+* [README12_Deploying_microservices.md](README12_Deploying_microservices.md)
+* [README13_Refactoring_to_microservices.md](README13_Refactoring_to_microservices.md)
